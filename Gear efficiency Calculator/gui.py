@@ -6,6 +6,8 @@ crit_d = "Crit Damage"
 crit_c = "Crit Chance"
 spd = "Speed"
 
+stat_list = [commonstats, crit_d,crit_c,spd]
+
 class MyOptionMenu(OptionMenu):
     def __init__(self, master, status, *options):
         self.var = StringVar(master)
@@ -13,6 +15,7 @@ class MyOptionMenu(OptionMenu):
         OptionMenu.__init__(self, master, self.var, *options)
         self.config(font=('calibri',(10)),bg='white',width=20)
         self['menu'].config(font=('calibri',(10)),bg='white')
+
 def calculate_gear():
     modi1 = (statline1.var,int(myentry1.get()))
     modi2 = (statline2.var,int(myentry1.get()))
@@ -21,7 +24,7 @@ def calculate_gear():
     modi_list = [modi1,modi2,modi3, modi4]
     print(gearScore(modi_list))
 
-
+     
 root = Tk()
 root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=1)
